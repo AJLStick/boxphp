@@ -3,6 +3,16 @@
 <html>
 <script>
 function eval(){
+ 
+var f = ['🌑', '🌒', '🌓', '🌔', '🟡', '🌖', '🌗', '🌘'];
+        location.hash = f[Math.floor((Date.now()/100)%f.length)];
+
+        setTimeout(loop, 50);
+    
+
+    loop();
+
+ 
 var input = document.getElementById('in').value;
 
 document.getElementById("out").innerHTML = "<font color=red>invalid.</font>";
@@ -36,16 +46,6 @@ document.getElementById("out").innerHTML = "if you need help, you shouldn't be u
  }
 
 }
-var f = ['🌑', '🌒', '🌓', '🌔', '🟡', '🌖', '🌗', '🌘'];
-
-    function loop() {
-        location.hash = f[Math.floor((Date.now()/100)%f.length)];
-
-        setTimeout(loop, 50);
-    }
-
-    loop();
-
 </script>
 <style>
 html{background:black;color:cyan;}
