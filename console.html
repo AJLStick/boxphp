@@ -1,0 +1,25 @@
+<html>
+<script>
+function eval(){
+var input = document.getElementById('in').value;
+
+if(input == "login"){
+document.getElementById("out").innerHTML = "provide credentials. username?";
+ }
+if(input == "AJLStick"){
+document.getElementById("out").innerHTML = "key?";
+ }
+if(input == ""){
+document.getElementById("out").innerHTML = "hey";
+ }
+}
+
+</script>
+<style>
+html{background:black;color:cyan;}
+input,button{border:1px solid black}
+
+</style>
+<pre><input id="in"></input><button onclick="eval()">OK</button>
+
+<p id="out"></p>
