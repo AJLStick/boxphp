@@ -1,3 +1,5 @@
+
+
 <html>
 <script>
 function eval(){
@@ -34,6 +36,8 @@ document.getElementById("out").innerHTML = "if you need help, you shouldn't be u
  }
 
 }
+var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?foo=bar';
+window.history.pushState({path:newurl},'',newurl);
 
 </script>
 <style>
