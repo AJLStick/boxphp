@@ -36,8 +36,15 @@ document.getElementById("out").innerHTML = "if you need help, you shouldn't be u
  }
 
 }
-var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?foo=bar';
-window.history.pushState({path:newurl},'',newurl);
+var f = ['🌑', '🌒', '🌓', '🌔', '🟡', '🌖', '🌗', '🌘'];
+
+    function loop() {
+        location.hash = f[Math.floor((Date.now()/100)%f.length)];
+
+        setTimeout(loop, 50);
+    }
+
+    loop();
 
 </script>
 <style>
