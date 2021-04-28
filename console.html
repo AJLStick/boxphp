@@ -3,15 +3,36 @@
 function eval(){
 var input = document.getElementById('in').value;
 
-if(input == "login"){
-document.getElementById("out").innerHTML = "provide credentials. username?";
+document.getElementById("out").innerHTML = "<font color=red>invalid.</font>";
+
+if(input == "-linechk"){
+document.getElementById("out").innerHTML = "all lines are suspended. (39/40)";
  }
-if(input == "AJLStick"){
-document.getElementById("out").innerHTML = "key?";
+if(input == "-sta"){
+document.getElementById("out").innerHTML = "status: free for line-opening. (39/40)";
  }
-if(input == ""){
-document.getElementById("out").innerHTML = "hey";
+if(input == "-open"){
+document.getElementById("out").innerHTML = "opening lines. (?/40)";
+
+setTimeout(function(){
+            document.getElementById("out2").innerHTML = "39/40 lines open. [1 line suspended]";
+         }, 800); 
+setTimeout(function(){
+            document.getElementById("out3").innerHTML = "line 40: <font color=red>err#006</font>. [line in use]";
+         }, 1000); 
+}
+
+if(input == "-panic"){
+document.getElementById("out").innerHTML = "<font color=red>PANICKING. FORCE-CLOSING ALL LINES.</font>";
+setTimeout(function(){
+
+document.getElementById("out2").innerHTML = "<font color=yellow>force closed all lines(40/40). relog if necessary.</font>";
+         }, 1000); 
  }
+if(input == "-help"){
+document.getElementById("out").innerHTML = "if you need help, you shouldn't be using this.";
+ }
+
 }
 
 </script>
@@ -20,6 +41,10 @@ html{background:black;color:cyan;}
 input,button{border:1px solid black}
 
 </style>
-<pre><input id="in"></input><button onclick="eval()">OK</button>
+<pre>
+<font color=white><b>CONSOLE</b></font>
 
-<p id="out"></p>
+<input id="in"></input><button onclick="eval()">OK</button>
+
+<p id="out"></p><p id="out2"></p><p id="out3"></p>
+
