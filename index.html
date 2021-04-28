@@ -1,0 +1,26 @@
+<html>
+<script>
+function eval(){
+var input = document.getElementById('in').value;
+var output = document.getElementById('out').value;
+
+if(input == "AJLStick" && output == "12346693"){
+document.getElementById("result").innerHTML = "accepted. <font color=red>DO NOT BOOKMARK!</font>";
+
+setTimeout(function(){
+            window.location.href = 'https://ajlstick.github.io/console/console.html';
+         }, 2000); 
+}
+}
+
+</script>
+<style>
+html{background:black;color:cyan;}
+input,button{border:1px solid black}
+
+</style>
+<pre>
+<input id="in"></input>
+<input id="out"></input><button onclick="eval()">OK</button>
+
+<p id="result"></p>
