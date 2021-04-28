@@ -6,7 +6,7 @@ var input = document.getElementById('in').value;
 document.getElementById("out").innerHTML = "<font color=red>invalid.</font>";
 
 if(input == "-linechk"){
-document.getElementById("out").innerHTML = "all lines are suspended. (39/40)";
+document.getElementById("out").innerHTML = "all lines on [home] are suspended. (39/40)";
  }
 if(input == "-sta"){
 document.getElementById("out").innerHTML = "status: free for line-opening. (39/40)";
@@ -15,7 +15,7 @@ if(input == "-open"){
 document.getElementById("out").innerHTML = "opening lines. (?/40)";
 
 setTimeout(function(){
-            document.getElementById("out2").innerHTML = "39/40 lines open. [1 line suspended]";
+            document.getElementById("out2").innerHTML = "39/40 [home] lines open. [1 line suspended]";
          }, 800); 
 setTimeout(function(){
             document.getElementById("out3").innerHTML = "line 40: <font color=red>err#006</font>. [line in use]";
