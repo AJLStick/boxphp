@@ -2,17 +2,9 @@
 
 <html>
 <script>
+
 function eval(){
- 
-var f = ['🌑', '🌒', '🌓', '🌔', '🟡', '🌖', '🌗', '🌘'];
-        location.hash = f[Math.floor((Date.now()/100)%f.length)];
 
-        setTimeout(loop, 50);
-    
-
-    loop();
-
- 
 var input = document.getElementById('in').value;
 
 document.getElementById("out").innerHTML = "<font color=red>invalid.</font>";
@@ -20,9 +12,10 @@ document.getElementById("out").innerHTML = "<font color=red>invalid.</font>";
 if(input == "-linechk"){
 document.getElementById("out").innerHTML = "all lines on [home] are suspended. (39/40)";
  }
-if(input == "-sta"){
-document.getElementById("out").innerHTML = "status: free for line-opening. (39/40)";
- }
+if(input == "-status"){
+  var myWindow = window.open("status", "status", "width=400,height=200");
+  myWindow.document.write("<pre></pre>");
+}
 if(input == "-open"){
 document.getElementById("out").innerHTML = "opening lines. (?/40)";
 
@@ -45,17 +38,74 @@ if(input == "-help"){
 document.getElementById("out").innerHTML = "if you need help, you shouldn't be using this.";
  }
 
+
 }
 </script>
 <style>
 html{background:black;color:cyan;}
 input,button{border:1px solid black}
 
+.loader {background:black;
+    -webkit-animation: load-out 5s;
+    animation: load-out 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes load-out {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes load-out {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 100%;
+        opacity: 1;
+    }
+}
 </style>
+<center><div class="loader"><img src="https://ajlstick.github.io/logo.png" width=100 height=100></img></div><center>
+
 <pre>
+
 <font color=white><b>CONSOLE</b></font>
 
-<input id="in"></input><button onclick="eval()">OK</button>
+<input id="in"></input><button id="btn" onclick="eval()">OK</button>
 
 <p id="out"></p><p id="out2"></p><p id="out3"></p>
+<p id="text"><font color=red>make sure caps lock isn't on.</font></p>
+</pre>
+<script>
+var input = document.getElementById("in");
+var text = document.getElementById("text");
+input.addEventListener("keyup", function(event) {
+
+if (event.getModifierState("CapsLock")) {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none"
+  }
+});
+</script>
+<script>
+var input = document.getElementById("in");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("btn").click();
+  }
+});
+</script>
 
